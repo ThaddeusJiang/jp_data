@@ -11,6 +11,8 @@ defmodule JpDataWeb.Router do
   end
 
   pipeline :api do
+    # add the rate limit plug here
+    plug JpData.Utils.RateLimit
     plug :accepts, ["json"]
   end
 
@@ -21,9 +23,11 @@ defmodule JpDataWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", JpDataWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", JpDataWeb do
+    pipe_through :api
+
+    get "/test", PageController, :test
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:jp_data, :dev_routes) do

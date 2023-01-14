@@ -7,6 +7,10 @@
 # General application configuration
 import Config
 
+# Config the rate limiter
+config :hammer,
+  backend: {Hammer.Backend.ETS, [expiry_ms: 60_000 * 60 * 4, cleanup_interval_ms: 60_000 * 10]}
+
 config :jp_data,
   ecto_repos: [JpData.Repo]
 
