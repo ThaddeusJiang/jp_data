@@ -26,7 +26,7 @@ defmodule JpDataWeb.Router do
   scope "/api/v1", JpDataWeb do
     pipe_through :api
 
-    get "/test", PageController, :test
+    get "/furigana", PageController, :furigana
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

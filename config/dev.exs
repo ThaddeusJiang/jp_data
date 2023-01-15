@@ -78,3 +78,4 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
+config :jp_data, :yahoo_app_id, "dj00aiZpPURoT3lxUnVUV0R6UyZzPWNvbnN1bWVyc2VjcmV0Jng9ZTA-"

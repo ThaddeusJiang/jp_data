@@ -5,7 +5,7 @@ defmodule JpData.Utils.RateLimit do
   alias JpData.Utils.GetIp
   require Logger
 
-  @limit 2
+  @limit 10
 
   def init(opts), do: opts
 
