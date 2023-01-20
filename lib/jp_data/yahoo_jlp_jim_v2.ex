@@ -7,7 +7,7 @@ defmodule JpData.YahooJlpJimV2 do
     headers = [{"Content-Type", "application/json"}, {"User-Agent", "Yahoo AppID: #{app_id()}"}]
 
     params = %{
-      id: "1",
+      id: DateTime.utc_now() |> DateTime.to_string(),
       jsonrpc: "2.0",
       method: "jlp.jimservice.conversion",
       params: %{
