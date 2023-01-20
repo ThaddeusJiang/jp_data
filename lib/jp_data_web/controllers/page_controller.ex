@@ -23,7 +23,7 @@ defmodule JpDataWeb.PageController do
     result = JpData.YahooJlpJimV2.conversion(hiragana)
 
     conn
-    |> put_resp_header("content-type", "application/json")
+    |> put_resp_header("content-type", "application/json;charset=utf-8")
     |> put_status(200)
     |> json(result)
   end
