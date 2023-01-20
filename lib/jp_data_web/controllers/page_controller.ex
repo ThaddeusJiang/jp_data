@@ -7,7 +7,7 @@ defmodule JpDataWeb.PageController do
     render(conn, :home, layout: false)
   end
 
-  def furigana(conn, %{"q" => ""}) do
+  def moji(conn, %{"q" => ""}) do
     conn
     |> put_resp_header("content-type", "application/json")
     |> put_status(400)
@@ -18,18 +18,17 @@ defmodule JpDataWeb.PageController do
     })
   end
 
-  def furigana(conn, %{"q" => q}) do
-    result = JpData.Furigana.get_furigana(q)
+  def moji(conn, %{"q" => q}) do
+    hiragana = JpData.YahooFuriganaV2.furigana(q)
+    result = JpData.YahooJlpJimV2.conversion(hiragana)
 
     conn
     |> put_resp_header("content-type", "application/json")
     |> put_status(200)
-    |> json(%{
-      furigana: result
-    })
+    |> json(result)
   end
 
-  def furigana(conn, %{}) do
+  def moji(conn, %{}) do
     conn
     |> put_resp_header("content-type", "application/json")
     |> put_status(400)
