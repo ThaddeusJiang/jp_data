@@ -54,7 +54,8 @@ defmodule JpData.MixProject do
       # http
       {:httpoison, "~> 1.8"},
       # rate limit
-      {:hammer, "~> 6.1"}
+      {:hammer, "~> 6.1"},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 

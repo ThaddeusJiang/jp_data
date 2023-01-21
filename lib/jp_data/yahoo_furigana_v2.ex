@@ -1,13 +1,13 @@
-defmodule JpData.Furigana do
+defmodule JpData.YahooFuriganaV2 do
   require HTTPoison
 
   @url "https://jlp.yahooapis.jp/FuriganaService/V2/furigana"
 
-  def get_furigana(text) do
+  def furigana(text) do
     headers = [{"Content-Type", "application/json"}, {"User-Agent", "Yahoo AppID: #{app_id()}"}]
 
     params = %{
-      id: "1",
+      id: DateTime.utc_now() |> DateTime.to_string(),
       jsonrpc: "2.0",
       method: "jlp.furiganaservice.furigana",
       params: %{
@@ -24,7 +24,7 @@ defmodule JpData.Furigana do
         |> Jason.decode!()
         |> Map.get("result")
         |> Map.get("word")
-        |> Enum.map(fn word -> furigana(word) end)
+        |> Enum.map(fn word -> get_furigana(word) end)
         |> Enum.join("")
 
       {:ok, %HTTPoison.Response{status_code: 404}} ->
@@ -36,11 +36,11 @@ defmodule JpData.Furigana do
     end
   end
 
-  defp furigana(%{"furigana" => value, "surface" => _}) do
+  defp get_furigana(%{"furigana" => value, "surface" => _}) do
     value
   end
 
-  defp furigana(%{"surface" => value}) do
+  defp get_furigana(%{"surface" => value}) do
     value
   end
 

@@ -112,4 +112,6 @@ if config_env() == :prod do
   #     config :swoosh, :api_client, Swoosh.ApiClient.Hackney
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
+
+  config :jp_data, :yahoo_app_id, System.get_env("YAHOO_APP_ID")
 end
