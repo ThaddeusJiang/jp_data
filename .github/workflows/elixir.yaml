@@ -10,9 +10,6 @@ on:
 env:
   MIX_ENV: test
 
-permissions:
-  contents: read
-
 jobs:
   test:
     # Set up a Postgres DB service. By default, Phoenix applications
@@ -108,4 +105,4 @@ jobs:
 
       # Step: Execute the tests.
       - name: Run tests
-        run: mix test --cover
+        run: mix test
