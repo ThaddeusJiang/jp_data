@@ -1,5 +1,8 @@
 # Japan Data
 
+[![Fly Deploy](https://github.com/ThaddeusJiang/jp_data/actions/workflows/fly.yml/badge.svg)](https://github.com/ThaddeusJiang/jp_data/actions/workflows/fly.yml)
+[![Elixir CI](https://github.com/ThaddeusJiang/jp_data/actions/workflows/elixir.yaml/badge.svg)](https://github.com/ThaddeusJiang/jp_data/actions/workflows/elixir.yaml)
+
 ## Features
 
 - [ ] Japan Post Service
