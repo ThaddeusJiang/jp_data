@@ -5,10 +5,10 @@
 
 ## Features
 
-- [ ] Japan Post Service
-- [ ] Japanese 読み仮名 Service
-- [ ] Japan Bank Service
-- [ ] Japan HR Service
+- [x] Japan Data 文字 Service
+- [ ] Japan Data 郵便 Service
+- [ ] Japan Data 金融機関 Service
+- [ ] Japan Data 人事 Service
 
 To start your Phoenix server:
 
@@ -19,22 +19,3 @@ To start your Phoenix server:
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-- Official website: https://www.phoenixframework.org/
-- Guides: https://hexdocs.pm/phoenix/overview.html
-- Docs: https://hexdocs.pm/phoenix
-- Forum: https://elixirforum.com/c/phoenix-forum
-- Source: https://github.com/phoenixframework/phoenix
-
-# 日本 金融機関一覧
-
-TODO:
-
-- [ ] 金融機関名（カナ）
-- [ ] 支店一覧
-
-![金融機関一覧](./docs/金融機関一覧.png)
-
-![支店一覧](./docs/支店一覧.png)
