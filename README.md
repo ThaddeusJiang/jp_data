@@ -2,6 +2,7 @@
 
 [![Fly Deploy](https://github.com/ThaddeusJiang/jp_data/actions/workflows/fly.yml/badge.svg)](https://github.com/ThaddeusJiang/jp_data/actions/workflows/fly.yml)
 [![Elixir CI](https://github.com/ThaddeusJiang/jp_data/actions/workflows/elixir.yaml/badge.svg)](https://github.com/ThaddeusJiang/jp_data/actions/workflows/elixir.yaml)
+[![codecov](https://codecov.io/github/ThaddeusJiang/jp_data/branch/main/graph/badge.svg?token=e63MmlDAiZ)](https://codecov.io/github/ThaddeusJiang/jp_data)
 
 ## Features
 
