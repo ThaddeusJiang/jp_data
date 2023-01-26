@@ -26,7 +26,8 @@ defmodule JpDataWeb.Router do
   scope "/api/v1", JpDataWeb do
     pipe_through :api
 
-    get "/moji", PageController, :moji
+    get "/moji", MojiController, :moji
+    get "/zipcode", ZipcodeController, :zipcode
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

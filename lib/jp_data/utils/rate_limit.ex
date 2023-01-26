@@ -26,8 +26,8 @@ defmodule JpData.Utils.RateLimit do
     conn
     |> put_status(429)
     |> json(%{
-      statusCode: 429,
-      statusMessage: "Too Many Requests",
+      status_code: 429,
+      status_message: "Too Many Requests",
       message: "Too Many Requests"
     })
     |> halt()

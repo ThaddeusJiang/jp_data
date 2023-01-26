@@ -6,10 +6,10 @@
 
 ## Features
 
-- [x] Japan Data 文字 Service
-- [ ] Japan Data 郵便 Service
-- [ ] Japan Data 金融機関 Service
-- [ ] Japan Data 人事 Service
+- [x] Japan 文字 Data Service
+- [x] Japan 郵便 Data Service
+- [ ] Japan 金融機関 Data Service
+- [ ] Japan 人事 Data Service
 
 To start your Phoenix server:
 
