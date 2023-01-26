@@ -6,8 +6,8 @@ defmodule JpDataWeb.ZipcodeController do
     |> put_resp_header("content-type", "application/json")
     |> put_status(400)
     |> json(%{
-      statusCode: 400,
-      statusMessage: "Bad Request",
+      status_code: 400,
+      status_message: "Bad Request",
       message: "Bad Request"
     })
   end
@@ -15,10 +15,23 @@ defmodule JpDataWeb.ZipcodeController do
   def zipcode(conn, %{"q" => q}) do
     result = JpData.Zipcode.search(q)
 
-    conn
-    |> put_resp_header("content-type", "application/json;charset=utf-8")
-    |> put_status(200)
-    |> json(result)
+    case result do
+      nil ->
+        conn
+        |> put_resp_header("content-type", "application/json")
+        |> put_status(404)
+        |> json(%{
+          status_code: 404,
+          status_message: "Not Found",
+          message: "Not Found"
+        })
+
+      _ ->
+        conn
+        |> put_resp_header("content-type", "application/json;charset=utf-8")
+        |> put_status(200)
+        |> json(result)
+    end
   end
 
   def zipcode(conn, %{}) do
@@ -26,8 +39,8 @@ defmodule JpDataWeb.ZipcodeController do
     |> put_resp_header("content-type", "application/json")
     |> put_status(400)
     |> json(%{
-      statusCode: 400,
-      statusMessage: "Bad Request",
+      status_code: 400,
+      status_message: "Bad Request",
       message: "Bad Request"
     })
   end

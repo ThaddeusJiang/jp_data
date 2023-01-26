@@ -6,8 +6,8 @@ defmodule JpDataWeb.MojiController do
     |> put_resp_header("content-type", "application/json")
     |> put_status(400)
     |> json(%{
-      statusCode: 400,
-      statusMessage: "Bad Request",
+      status_code: 400,
+      status_message: "Bad Request",
       message: "Bad Request"
     })
   end
@@ -27,8 +27,8 @@ defmodule JpDataWeb.MojiController do
     |> put_resp_header("content-type", "application/json")
     |> put_status(400)
     |> json(%{
-      statusCode: 400,
-      statusMessage: "Bad Request",
+      status_code: 400,
+      status_message: "Bad Request",
       message: "Bad Request"
     })
   end
