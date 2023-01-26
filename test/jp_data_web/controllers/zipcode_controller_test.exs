@@ -2,6 +2,7 @@ defmodule JpDataWeb.ZipcodeControllerTest do
   use JpDataWeb.ConnCase
 
   test "GET /zipcode?q=2440817 should be 200", %{conn: conn} do
+    JpData.ZipcodeFixtures.zipcode_fixture()
     conn = get(conn, ~p"/api/v1/zipcode?q=2440817")
 
     assert json_response(conn, 200) == %{
@@ -16,6 +17,7 @@ defmodule JpDataWeb.ZipcodeControllerTest do
   end
 
   test "GET /zipcode?q=244-0817 should be 200", %{conn: conn} do
+    JpData.ZipcodeFixtures.zipcode_fixture()
     conn = get(conn, ~p"/api/v1/zipcode?q=244-0817")
 
     assert json_response(conn, 200) == %{
