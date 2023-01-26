@@ -16,7 +16,7 @@ defmodule JpDataWeb.ZipcodeController do
     result = JpData.Zipcode.search(q)
 
     case result do
-      nil ->
+      [] ->
         conn
         |> put_resp_header("content-type", "application/json")
         |> put_status(404)
@@ -30,7 +30,9 @@ defmodule JpDataWeb.ZipcodeController do
         conn
         |> put_resp_header("content-type", "application/json;charset=utf-8")
         |> put_status(200)
-        |> json(result)
+        |> json(%{
+          items: result
+        })
     end
   end
 

@@ -1,17 +1,35 @@
 defmodule JpData.Zipcode do
+  alias JpData.Repo
+  alias JpData.Address.Zipcode
+
+  import Ecto.Query
+
   def search(q) do
     zipcode = String.replace(q, "-", "")
-    #  Repo.one by zipcode
-    JpData.Address.Zipcode
-    |> JpData.Repo.get_by(zipcode: zipcode)
+
+    Repo.all(
+      from(z in Zipcode,
+        where: z.zipcode == ^zipcode
+      )
+    )
   end
 
   # read zipcode data from CSV file
   def read_zipcode_data do
     File.stream!(
-      Path.join(:code.priv_dir(:jp_data), "repo/zipcode.csv"),
+      Path.join(:code.priv_dir(:jp_data), "data/zipcode/zipcode.csv"),
       [read_ahead: 124_429],
       124_429
+    )
+    |> CSV.decode()
+    |> Enum.map(fn row -> parse_zipcode(row) end)
+  end
+
+  def read_zipcode_data(file_name) do
+    File.stream!(
+      Path.join(:code.priv_dir(:jp_data), "data/zipcode/#{file_name}"),
+      [read_ahead: 10000],
+      10000
     )
     |> CSV.decode()
     |> Enum.map(fn row -> parse_zipcode(row) end)

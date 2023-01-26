@@ -1,5 +1,13 @@
 # Dev notes
 
+## 2023-01-26
+
+拆分文件
+
+```bash
+split - 10000 <file>
+```
+
 ## Learn more
 
 - Official website: https://www.phoenixframework.org/

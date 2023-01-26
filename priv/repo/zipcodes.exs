@@ -1,3 +1,4 @@
+#  zipcodes = JpData.Zipcode.read_zipcode_data("2.csv")
 zipcodes = JpData.Zipcode.read_zipcode_data()
 alias JpData.Repo
 

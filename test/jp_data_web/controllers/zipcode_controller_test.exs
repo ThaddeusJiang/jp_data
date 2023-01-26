@@ -6,13 +6,17 @@ defmodule JpDataWeb.ZipcodeControllerTest do
     conn = get(conn, ~p"/api/v1/zipcode?q=2440817")
 
     assert json_response(conn, 200) == %{
-             "city" => "横浜市戸塚区",
-             "city_kana" => "ﾖｺﾊﾏｼﾄﾂｶｸ",
-             "pref" => "神奈川県",
-             "pref_kana" => "ｶﾅｶﾞﾜｹﾝ",
-             "town" => "吉田町",
-             "town_kana" => "ﾖｼﾀﾞﾁｮｳ",
-             "zipcode" => "2440817"
+             "items" => [
+               %{
+                 "city" => "横浜市戸塚区",
+                 "city_kana" => "ﾖｺﾊﾏｼﾄﾂｶｸ",
+                 "pref" => "神奈川県",
+                 "pref_kana" => "ｶﾅｶﾞﾜｹﾝ",
+                 "town" => "吉田町",
+                 "town_kana" => "ﾖｼﾀﾞﾁｮｳ",
+                 "zipcode" => "2440817"
+               }
+             ]
            }
   end
 
@@ -21,13 +25,17 @@ defmodule JpDataWeb.ZipcodeControllerTest do
     conn = get(conn, ~p"/api/v1/zipcode?q=244-0817")
 
     assert json_response(conn, 200) == %{
-             "city" => "横浜市戸塚区",
-             "city_kana" => "ﾖｺﾊﾏｼﾄﾂｶｸ",
-             "pref" => "神奈川県",
-             "pref_kana" => "ｶﾅｶﾞﾜｹﾝ",
-             "town" => "吉田町",
-             "town_kana" => "ﾖｼﾀﾞﾁｮｳ",
-             "zipcode" => "2440817"
+             "items" => [
+               %{
+                 "city" => "横浜市戸塚区",
+                 "city_kana" => "ﾖｺﾊﾏｼﾄﾂｶｸ",
+                 "pref" => "神奈川県",
+                 "pref_kana" => "ｶﾅｶﾞﾜｹﾝ",
+                 "town" => "吉田町",
+                 "town_kana" => "ﾖｼﾀﾞﾁｮｳ",
+                 "zipcode" => "2440817"
+               }
+             ]
            }
   end
 
