@@ -6,8 +6,8 @@
 
 ## Features
 
-- [x] Japan 文字 Data Service
-- [x] Japan 郵便 Data Service
+- [x] Japan 文字 Data Service https://japan-data.fly.dev/api/v1/moji?q=<日本語単語や長文>
+- [x] Japan 郵便 Data Service https://japan-data.fly.dev/api/v1/zipcode?q=<郵便番号>
 - [ ] Japan 金融機関 Data Service
 - [ ] Japan 人事 Data Service
 
