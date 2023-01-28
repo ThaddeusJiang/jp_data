@@ -2,33 +2,35 @@ defmodule JpDataWeb.Router do
   use JpDataWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, {JpDataWeb.Layouts, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, {JpDataWeb.Layouts, :root})
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
     # add the rate limit plug here
-    plug JpData.Utils.RateLimit
-    plug :accepts, ["json"]
+    plug(JpData.Utils.RateLimit)
+    plug(:accepts, ["json"])
   end
 
   scope "/", JpDataWeb do
-    pipe_through :browser
+    pipe_through(:browser)
 
-    get "/", PageController, :home
+    get("/", PageController, :home)
   end
 
   # Other scopes may use custom stacks.
   scope "/api/v1", JpDataWeb do
-    pipe_through :api
+    pipe_through(:api)
 
-    get "/moji", MojiController, :moji
-    get "/zipcode", ZipcodeController, :zipcode
-    get "/banks", BanksController, :banks
+    get("/moji", MojiController, :moji)
+    get("/zipcode", ZipcodeController, :zipcode)
+    get("/banks", BanksController, :banks)
+    get("/banks/:bank_code", BanksController, :bank)
+    get("/banks/:bank_code/branches", BanksController, :bank_branches)
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
@@ -41,10 +43,10 @@ defmodule JpDataWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      live_dashboard "/dashboard", metrics: JpDataWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      live_dashboard("/dashboard", metrics: JpDataWeb.Telemetry)
+      forward("/mailbox", Plug.Swoosh.MailboxPreview)
     end
   end
 end

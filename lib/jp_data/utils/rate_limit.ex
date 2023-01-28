@@ -5,14 +5,13 @@ defmodule JpData.Utils.RateLimit do
   alias JpData.Utils.GetIp
   require Logger
 
-  @limit 10
-
   def init(opts), do: opts
 
   def call(conn, _opts) do
     ip = GetIp.get_ip()
+    limit = get_limit()
 
-    case Hammer.check_rate(ip, 60_000, @limit) do
+    case Hammer.check_rate(ip, 60_000, limit) do
       {:allow, count} ->
         assign(conn, :requests_count, count)
 
@@ -31,5 +30,12 @@ defmodule JpData.Utils.RateLimit do
       message: "Too Many Requests"
     })
     |> halt()
+  end
+
+  defp get_limit do
+    case limit = Application.get_env(:jp_data, :rate_limit) do
+      nil -> 10
+      _ -> limit
+    end
   end
 end
