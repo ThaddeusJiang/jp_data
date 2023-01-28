@@ -52,13 +52,24 @@ defmodule JpData.Banks do
     end)
   end
 
+  def read_bank_branches_csv(file_name) do
+    File.stream!(
+      Path.join(:code.priv_dir(:jp_data), "data/banks/#{file_name}.csv"),
+      [read_ahead: 30000],
+      30000
+    )
+    |> CSV.decode()
+    |> Enum.map(fn row -> parse_bank_branch(row) end)
+  end
+
   defp read_bank_branches_csv do
     File.stream!(
       Path.join(:code.priv_dir(:jp_data), "data/banks/bank_branches.csv"),
       [read_ahead: 30000],
       30000
     )
-    |> CSV.decode(headers: true)
+    |> CSV.decode()
+    |> Enum.drop(1)
     |> Enum.map(fn row -> parse_bank_branch(row) end)
   end
 
