@@ -2,7 +2,7 @@ defmodule JpData.Banks.BankFixtures do
   @doc """
   Generate a bank
   """
-  def bank_fixtures do
+  def bank_fixture do
     %JpData.Banks.Bank{
       id: "0001",
       code: "0001",
