@@ -32,3 +32,4 @@ config :logger, level: :warning
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
 config :jp_data, :yahoo_app_id, "dj00aiZpPURoT3lxUnVUV0R6UyZzPWNvbnN1bWVyc2VjcmV0Jng9ZTA-"
+config :jp_data, :rate_limit, 100
