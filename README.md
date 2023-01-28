@@ -8,7 +8,9 @@
 
 - [x] Japan 文字 Data Service https://japan-data.fly.dev/api/v1/moji?q=<日本語単語や長文>
 - [x] Japan 郵便 Data Service https://japan-data.fly.dev/api/v1/zipcode?q=<郵便番号>
-- [ ] Japan 金融機関 Data Service
+- [x] Japan 金融機関 Data Service https://japan-data.fly.dev/api/v1/banks
+  - [ ] 支店　https://japan-data.fly.dev/api/v1/banks/:code/branches
+- [ ] Japan 日付 Data Service, how many days you have to work, and is it a holiday?
 - [ ] Japan 人事 Data Service
 
 To start your Phoenix server:
