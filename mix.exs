@@ -66,7 +66,8 @@ defmodule JpData.MixProject do
       {:hammer, "~> 6.1"},
       {:mox, "~> 1.0", only: :test},
       {:excoveralls, "~> 0.13", only: :test},
-      {:csv, "~> 3.0"}
+      {:csv, "~> 3.0"},
+      {:poison, "~> 5.0"}
     ]
   end
 

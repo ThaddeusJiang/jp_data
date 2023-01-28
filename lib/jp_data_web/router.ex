@@ -28,6 +28,7 @@ defmodule JpDataWeb.Router do
 
     get "/moji", MojiController, :moji
     get "/zipcode", ZipcodeController, :zipcode
+    get "/banks", BanksController, :banks
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
