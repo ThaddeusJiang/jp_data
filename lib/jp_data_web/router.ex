@@ -31,6 +31,7 @@ defmodule JpDataWeb.Router do
     get("/banks", BanksController, :banks)
     get("/banks/:bank_code", BanksController, :bank)
     get("/banks/:bank_code/branches", BanksController, :bank_branches)
+    get("/holidays", DaysController, :holidays)
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
