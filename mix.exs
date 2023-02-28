@@ -84,7 +84,8 @@ defmodule JpData.MixProject do
         "ecto.create",
         "ecto.migrate",
         "run priv/repo/seeds.exs",
-        "run priv/repo/zipcodes.exs"
+        "run priv/repo/zipcodes.exs",
+        "run priv/repo/days.exs"
       ],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],

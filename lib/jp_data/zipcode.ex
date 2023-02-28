@@ -17,7 +17,7 @@ defmodule JpData.Zipcode do
   # read zipcode data from CSV file
   def read_zipcode_data do
     File.stream!(
-      Path.join(:code.priv_dir(:jp_data), "data/zipcode/zipcode.csv"),
+      Path.join(:code.priv_dir(:jp_data), "data/zipcode/all.csv"),
       [read_ahead: 124_429],
       124_429
     )
